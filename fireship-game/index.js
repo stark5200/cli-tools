@@ -9,3 +9,10 @@ import figlet from "figlet";
 import { createSpinner } from "nanospinner";
 
 console.log(chalk.bgGreen("Crazy frog"));
+
+let playerName;
+
+const sleep  = () =>
+async function welcome() {
+  const rainbowTitle = chalkAnimation.rainbow('who wants to be a Millionaire? \n');
+}
