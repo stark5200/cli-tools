@@ -12,7 +12,13 @@ console.log(chalk.bgGreen("Crazy frog"));
 
 let playerName;
 
-const sleep  = () =>
+const sleep  = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 async function welcome() {
+
   const rainbowTitle = chalkAnimation.rainbow('who wants to be a Millionaire? \n');
+  await sleep();
+  rainbowTitle.stop();
+
+  
+
 }
