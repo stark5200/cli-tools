@@ -19,6 +19,13 @@ async function welcome() {
   await sleep();
   rainbowTitle.stop();
 
-  
+  console.log(`
+    ${chalk.bgBlue('HOW TO PLAY')}
+    i am a process on your computer.
+    if you get any question wrong I will be ${chalk.bgRed('killed')}
+    so get all the questions right...
+    `)
 
 }
+
+await welcome()
