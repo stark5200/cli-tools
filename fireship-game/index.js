@@ -26,6 +26,21 @@ async function welcome() {
     so get all the questions right...
     `)
 
+    async function askName() {
+      const answers = await inquirer.prompt({
+        name: 'stark', 
+        type: 'input', 
+        message: 'What is your role?', 
+
+        default() {
+          return 'Player';
+        },
+      });
+      
+      playerName = answers.player_name
+    }
+
 }
 
 await welcome()
+await askName()
