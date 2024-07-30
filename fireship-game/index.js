@@ -42,5 +42,5 @@ async function welcome() {
 
 }
 
-await welcome()
-await askName()
+//await welcome()
+//await askName()
