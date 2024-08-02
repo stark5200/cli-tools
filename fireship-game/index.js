@@ -11,8 +11,9 @@ import { createSpinner } from "nanospinner";
 console.log(chalk.bgGreen("Crazy frog"));
 
 let playerName = "Player 1";
+let friendName = "Player 2";
 
-const sleep  = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
+const sleep  = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 async function welcome() {
 
   const rainbowTitle = chalkAnimation.rainbow('who wants to be a Millionaire? \n');
@@ -37,7 +38,20 @@ async function askName() {
     },
   });
   
-  playerName = answers.player_name
+  playerName = answers.player_name;
+}
+
+async function askFriend() {
+  const answers = await inquirer.prompt({
+    name: 'friend_name', 
+    type: 'input', 
+    message: 'What is your rivals name?', 
+    default() {
+      return 'Player 2';
+    },
+  });
+  
+  friendName = answers.friend_name;
 }
 
 async function question1() {
@@ -68,8 +82,20 @@ async function handleAnswer(isCorrect) {
   }
 }
 
-await welcome()
-await askName()
-await question1()
+function winner() {
+  //console.clear();
+  const msg = `Congrats, ${playerName} !\n $ 1 , 0 0 0 , 0 0 0 \n
+  💀💀💀 Better Luck Next Time, \n ${friendName} ! $ 0 \n`;
+
+  figlet(msg, (err, data) => {
+    console.log(gradient.pastel.multiline(data))
+  });
+}
+
+await welcome();
+await askName();
+await askFriend();
+await question1();
+winner();
 
 
